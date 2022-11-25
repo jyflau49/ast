@@ -32,7 +32,8 @@ RUN go get \
     && echo 'alias normal="curl -D - -s \"https://${URL}\" -A \"astbot/1.0\" -H \"Pragma: Pragma:x-cache,akamai-x-cache-on, akamai-x-get-request-id\" -o /dev/null"' >> ~/.bashrc \
     && echo 'alias waf="wat && protocol && sqli && xss && lfi && rfi && cmdi && platform && normal"' >> ~/.bashrc \
     && echo 'alias swaf="wat | head -n 1 && protocol | head -n 1 && sqli | head -n 1 && xss | head -n 1 && lfi | head -n 1 && rfi | head -n 1 && cmdi | head -n 1 && platform | head -n 1 && normal | head -n 1"' >> ~/.bashrc \
-    && echo 'alias sel="python3 sel.py"' >> ~/.bashrc
+    && echo 'alias sel="python3 sel.py"' >> ~/.bashrc \
+    && echo 'alias ra="curl -D - -s \"https://${URL}\" -A \"Mozilla/5.0\" -H \"Pragma: Pragma:x-cache,akamai-x-cache-on, akamai-x-get-request-id\" -o /dev/null"' >> ~/.bashrc
 
 # Runtime CMD
 CMD echo 'Welcome to ast!\nAvailable commands (as alias): sel, fuzz, waf, swaf,\nwat, protocol, sqli, xss, lfi, rfi, cmdi, platform, normal' ; /bin/bash
