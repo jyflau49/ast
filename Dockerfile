@@ -8,7 +8,7 @@ RUN set -x; buildDeps='curl dnsutils iputils-ping golang-go git python3 python3-
     && apt-get install -y $buildDeps \
     && git clone https://github.com/ffuf/ffuf \
     && pip install selenium
-#t
+
 WORKDIR /ffuf
 COPY ./wordlist.txt .
 COPY ./sel.py .
