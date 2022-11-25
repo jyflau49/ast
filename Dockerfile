@@ -36,4 +36,4 @@ RUN go get \
     && echo 'alias ra="curl -D - -s \"https://${URL}\" -A \"Mozilla/5.0\" -H \"Pragma: Pragma:x-cache,akamai-x-cache-on, akamai-x-get-request-id\" -o /dev/null"' >> ~/.bashrc
 
 # Runtime CMD
-CMD echo 'Welcome to ast!\nAvailable commands (as alias): sel, fuzz, waf, swaf,\nwat, protocol, sqli, xss, lfi, rfi, cmdi, platform, normal' ; /bin/bash
+CMD echo 'Welcome to ast!\nAvailable commands (as alias): sel, fuzz, ra, waf, swaf,\nwat, protocol, sqli, xss, lfi, rfi, cmdi, platform, normal' ; /bin/bash
