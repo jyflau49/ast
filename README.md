@@ -6,7 +6,7 @@
     git clone https://github.com/jyflau49/ast.git
 3.	Get docker image
     docker pull lauyufung1994/ast:latest
-4.	Edit & rename environmental variables file .env.sample to .env
+4.	Edit environmental variables file .env
 5.	(local) Build with docker build -t ast .
     (github actions) Auto builds at main branch remote repo push
 6.	For Selenium testing, run command 
