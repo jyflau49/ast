@@ -1,12 +1,12 @@
-# ast
+# ast local build & run
 1.	Pre-requisite: Get docker
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh ./get-docker.sh
-2.	Get repo
+2.	Get ast repo
     git clone https://github.com/jyflau49/ast.git
-3.	Get docker image
+    (optional) Get ast docker image
     docker pull lauyufung1994/ast:latest
-4.	Edit environmental variables file .env
+4.	Edit environmental variables file .env and docker-compose extra_hosts
 5.	(local) Build with docker build -t ast .
     (github actions) Auto builds at main branch remote repo push
 6.	For Selenium testing, run command 

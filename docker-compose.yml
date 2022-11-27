@@ -1,10 +1,11 @@
 version: "3.9"
 services:
   shorthand:
-    build: .
+    build: ${AST_BUILD}
     env_file: .env
     stdin_open: true
     tty: true
+    #network_mode: "host"
     extra_hosts:
       - "blog.cocajola.xyz:23.50.63.25"
   grid:
@@ -17,5 +18,3 @@ services:
     shm_size: "2gb"
     extra_hosts:
       - "blog.cocajola.xyz:23.50.63.25"
-
-# docker run -d -p 4444:4444 -p 7900:7900 -e SE_START_XVFB=false -e SE_NODE_OVERRIDE_MAX_SESSIONS=true -e SE_NODE_MAX_SESSIONS=4 --shm-size="2g" --name grid selenium/standalone-chrome.

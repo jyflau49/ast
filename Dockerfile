@@ -8,10 +8,13 @@ RUN set -x; buildDeps='curl dnsutils iputils-ping golang-go git python3 python3-
 
 # Prepare files
 WORKDIR /ffuf
+RUN rm -f ./wordlist.txt \
+    && rm -f ./sel.py \
+    && rm -f ./requirements.txt
 COPY ./wordlist.txt .
 COPY ./sel.py .
-#COPY ./.env .
 COPY ./requirements.txt .
+#COPY ./.env .
 
 RUN python3 -m pip install -r ./requirements.txt \
     && go get \
