@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  shorthand:
+  ast:
     build: .
     env_file: .env
     stdin_open: true
@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/ffuf
     extra_hosts:
-      - "blog.cocajola.xyz:23.50.63.25"
+      - "${HOSTNAME}:${CONNECT_TO_IP}"
   grid:
     image: "selenium/standalone-chrome"
     env_file: .env
@@ -18,4 +18,4 @@ services:
       #- "7900:7900"
     shm_size: "2gb"
     extra_hosts:
-      - "blog.cocajola.xyz:23.50.63.25"
+      - "${HOSTNAME}:${CONNECT_TO_IP}"
