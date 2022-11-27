@@ -4,9 +4,7 @@ FROM ubuntu:latest
 RUN set -x; buildDeps='curl dnsutils iputils-ping golang-go git python3 python3-pip' \
     && apt-get update \
     && apt-get install -y $buildDeps \
-    && git clone https://github.com/ffuf/ffuf \
-    && python3 -m pip install selenium \
-    && python3 -m pip install python-dotenv
+    && git clone https://github.com/ffuf/ffuf
 
 # Prepare files
 WORKDIR /ffuf
@@ -15,7 +13,8 @@ COPY ./sel.py .
 COPY ./.env .
 
 # Prepare alias shorthands
-RUN go get \
+RUN python3 -m pip install -r requirements.txt \
+    go get \
     && go build \
     # Rate Control Fuzzing
     && echo 'head -${FUZZ_COUNT} wordlist.txt > swordlist.txt' >> ~/.bashrc \
@@ -35,5 +34,5 @@ RUN go get \
     && echo 'alias sel="python3 sel.py"' >> ~/.bashrc \
     && echo 'alias ra="curl -D - -s \"https://${URL}\" -A \"Mozilla/5.0\" -H \"Pragma: Pragma:x-cache,akamai-x-cache-on, akamai-x-get-request-id\" -o /dev/null"' >> ~/.bashrc
 
-# Runtime CMD
+# Runtime
 CMD echo 'Welcome to ast!\nAvailable commands (as alias): sel, fuzz, ra, waf, swaf,\nwat, protocol, sqli, xss, lfi, rfi, cmdi, platform, normal' ; /bin/bash
