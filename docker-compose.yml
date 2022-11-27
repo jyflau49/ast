@@ -1,11 +1,12 @@
 version: "3.9"
 services:
   shorthand:
-    build: ${AST_BUILD}
+    build: .
     env_file: .env
     stdin_open: true
     tty: true
-    #network_mode: "host"
+    volumes:
+      - .:/ffuf
     extra_hosts:
       - "blog.cocajola.xyz:23.50.63.25"
   grid:
