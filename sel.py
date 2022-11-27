@@ -15,7 +15,8 @@ def run_once():
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--headless')
     options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36")
-    driver = webdriver.Remote("http://localhost:4444/wd/hub",options=options)
+    driver = webdriver.Remote("http://grid:4444/wd/hub",options=options)
+    print('webdriver loaded')
     driver.get("https://" + os.getenv('URL'))
     time.sleep(5)
 
