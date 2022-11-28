@@ -25,7 +25,7 @@ RUN python3 -m pip install -r ./requirements.txt
 
 # Ffuf fuzzing and selenium browsing
 RUN echo 'head -${FUZZ_COUNT} ./wordlist.txt > ./swordlist.txt' >> ~/.bashrc \
-    && echo 'alias fuzz="../ffuf/ffuf -w ./swordlist.txt -u https://${URL}?q=FUZZ -H \"User-Agent: Mozilla/5.0 (astbot)\"; alias fuzz"' >> ~/.bashrc \
+    && echo 'alias fuzz="alias fuzz; ../ffuf/ffuf -w ./swordlist.txt -u https://${URL}?q=FUZZ -H \"User-Agent: Mozilla/5.0 (astbot)\""' >> ~/.bashrc \
     && echo 'alias sel="python3 ./sel.py; alias sel"' >> ~/.bashrc
 
 # Runtime
