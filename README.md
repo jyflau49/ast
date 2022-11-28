@@ -9,7 +9,7 @@
 4.	Edit environmental variables file .env
 5.	(local) Build with docker compose build ast
     (github actions) Auto builds at main branch remote repo push
-6.	For Selenium testing, run command 
+6.	For Selenium testing, run command
     docker compose up -d grid
 7.	(local) Enter shell with docker compose run --rm ast
     (docker hub build) Enter shell with docker compose run --rm lauyufung1994/ast
