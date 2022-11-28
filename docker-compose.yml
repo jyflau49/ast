@@ -6,7 +6,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/ffuf
+      - ./code:/code
     extra_hosts:
       - "${HOSTNAME}:${CONNECT_TO_IP}"
   grid:

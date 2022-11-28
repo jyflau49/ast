@@ -6,24 +6,27 @@ RUN set -x; buildDeps='curl dnsutils iputils-ping golang-go git python3 python3-
     && apt-get install -y $buildDeps \
     && git clone https://github.com/ffuf/ffuf
 
-# Prepare files for build
+# Ffuf golang build
 WORKDIR /ffuf
+RUN go get \
+    && go build
+
+# Prepare files for build
+WORKDIR /code
 RUN rm -f ./wordlist.txt \
     && rm -f ./sel.py \
     && rm -f ./requirements.txt
-COPY ./wordlist.txt .
-COPY ./sel.py .
-COPY ./requirements.txt .
+COPY ./code/wordlist.txt .
+COPY ./code/sel.py .
+COPY ./code/requirements.txt .
 
-# Python and golang build
-RUN python3 -m pip install -r ./requirements.txt \
-    && go get \
-    && go build
+# Python deps install
+RUN python3 -m pip install -r ./requirements.txt
 
 # Ffuf fuzzing and selenium browsing
-RUN echo 'head -${FUZZ_COUNT} wordlist.txt > swordlist.txt' >> ~/.bashrc \
-    && echo 'alias fuzz="alias fuzz; ./ffuf -w swordlist.txt -u https://${URL}?q=FUZZ -H \"User-Agent: Mozilla/5.0\""' >> ~/.bashrc \
-    && echo 'alias sel="python3 sel.py"' >> ~/.bashrc
+RUN echo 'head -${FUZZ_COUNT} ./wordlist.txt > ./swordlist.txt' >> ~/.bashrc \
+    && echo 'alias fuzz="alias fuzz; ../ffuf/ffuf -w ./swordlist.txt -u https://${URL}?q=FUZZ -H \"User-Agent: Mozilla/5.0 (astbot)\""' >> ~/.bashrc \
+    && echo 'alias sel="python3 ./sel.py"' >> ~/.bashrc
 
 # Runtime
 CMD echo 'Welcome to ast!\nAvailable commands (alias shorthands): sel, fuzz' ; /bin/bash

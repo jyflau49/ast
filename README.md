@@ -1,4 +1,4 @@
-# ast local build & run
+# ast build & run
 1.	Pre-requisite: Get docker
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh ./get-docker.sh
