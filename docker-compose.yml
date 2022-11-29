@@ -8,6 +8,7 @@ services:
     volumes:
       - ./code:/code
     shm_size: "2gb"
+    #network_mode: "host"
     extra_hosts:
       - "${HOSTNAME}:${CONNECT_TO_IP}"
   grid:
@@ -18,5 +19,6 @@ services:
       # Switch on 7900 if SE_START_XVFB=true 
       #- "7900:7900"
     shm_size: "2gb"
+    #network_mode: "host"
     extra_hosts:
       - "${HOSTNAME}:${CONNECT_TO_IP}"
