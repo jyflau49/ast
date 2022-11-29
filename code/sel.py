@@ -25,7 +25,7 @@ for i in range(len(urls)):
 
 def run_once():
     url = q.get()
-    print('working on: ' + url)
+    print('url added to queue: ' + url)
     # setting up headless chrome options
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-ssl-errors=yes')
