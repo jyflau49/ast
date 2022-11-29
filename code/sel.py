@@ -14,7 +14,8 @@ urls = [
     "en.wikipedia.org/wiki/Special:Random?q=2",
     "en.wikipedia.org/wiki/Special:Random?q=3",
     "en.wikipedia.org/wiki/Special:Random?q=4",
-    "en.wikipedia.org/wiki/Special:Random?q=5"
+    "en.wikipedia.org/wiki/Special:Random?q=5",
+    "en.wikipedia.org/wiki/Special:Random?q=6"
 ]
 
 q = Queue()
