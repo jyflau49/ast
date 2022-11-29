@@ -6,7 +6,7 @@
     git clone https://github.com/jyflau49/ast.git
     (optional) Get ast docker image
     docker pull lauyufung1994/ast:latest
-4.	Edit environmental variables file .env
+4.	Edit environmental variables file /.env and urls string list in /code/sel.py
 5.	(local) Build with docker compose build ast
     (github actions) Auto builds at main branch remote repo push
 6.	For Selenium testing, run command
