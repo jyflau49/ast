@@ -1,24 +1,11 @@
 version: "3.9"
 services:
-  ast:
+  vanilla_ffuf:
     build: .
-    env_file: .env
+    #env_file: .env
     stdin_open: true
     tty: true
-    volumes:
-      - ./code:/code
-    shm_size: "2gb"
+    shm_size: "4gb"
+    #volumes:
+    #  - ./code:/code
     #network_mode: "host"
-    extra_hosts:
-      - "${HOSTNAME}:${CONNECT_TO_IP}"
-  grid:
-    image: "selenium/standalone-chrome"
-    env_file: .env
-    ports:
-      - "4444:4444"
-      # Switch on 7900 if SE_START_XVFB=true 
-      #- "7900:7900"
-    shm_size: "2gb"
-    #network_mode: "host"
-    extra_hosts:
-      - "${HOSTNAME}:${CONNECT_TO_IP}"
