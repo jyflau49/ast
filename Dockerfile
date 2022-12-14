@@ -21,5 +21,5 @@ COPY ./code/ua.txt .
 
 # Runtime banner
 CMD echo 'Welcome to vanilla_ffuf!\nENVs:\
-HOST=${1}, TEAM=${2}, RUNS=${3}, ATTACKTIME=${4}, IDLETIME=${5}, PARALLEL=${6}\n\
-Usage: setsid ./runffuf.sh aseff.sheldon.one Expelliarmus 1440 120 10 100 >/dev/null 2>&1'; /bin/bash
+HOST=${1}, TEAM=${2}, RUNS=${3}, ATTACKTIME=${4}, IDLETIME=${5}, PARALLEL=${6}, DELAY=${7}, ISTOR=${8}\n\
+Usage: setsid ./runffuf.sh team42-cyberwargames-ratecontrols.akamaized.net titanium 86400 60 2 80 1 DIRECT >/dev/null 2>&1'; /bin/bash
